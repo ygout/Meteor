@@ -18,6 +18,7 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
+
 accounts-password
 materialize:materialize
 useraccounts:materialize
@@ -29,3 +30,4 @@ useraccounts:flow-routing
 arillo:flow-router-helpers
 kevohagan:sweetalert
 service-configuration
+accounts-google
