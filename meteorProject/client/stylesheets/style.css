@@ -16,4 +16,8 @@
   bottom: 60px;
   z-index: 100;
   /* text-align: left; */
+
+.nav-icon{
+  margin-left : 13px;
+
 }
