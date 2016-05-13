@@ -1,1 +1,1 @@
-MONGO_URL=mongodb://192.168.56.110/meteorProject meteor
+MONGO_URL=mongodb://localhost:27017/ipssi meteor
