@@ -1,9 +1,10 @@
 FlowRouter.route('/', {
-  name: 'home',
+  name: 'internetHome',
   action: function() {
-    BlazeLayout.render('layout1', {
-      nav : "navigation",
-      main: "home"
+    BlazeLayout.render('layoutInternet', {
+      nav : "internetNavigation",
+      main: "internetHome",
+      footer: "internetFooter"
     });
   }
 });
