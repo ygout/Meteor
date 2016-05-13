@@ -1,33 +1,18 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { Test } from '../imports/api/test.js';
+import { Comments } from '../imports/api/comments.js';
+import { Devs } from '../imports/api/devs.js';
+import '../imports/configs/at_configs.js';
+import '../imports/configs/routes.js';
+
+
+T9n.setLanguage('fr_FR');
 
 import './main.html';
+import '../imports/ui/layout.html';
+import '../imports/ui/helpers.js';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+BlazeLayout.setRoot('body');
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    //Test.insert({bob: 'hello'});
-    console.log('PING');
-    var tralala = Test.find();
-    tralala = tralala.fetch();
-    console.log('PONG : ', tralala);
-    tralala.forEach(function(item) {
-    	console.log('ALLO : ', item);
-    });
-
-    instance.counter.set(instance.counter.get() + 1);
-
-  },
-});
+// Meteor.subscribe('getComments');
+// Meteor.subscribe('getComment');
