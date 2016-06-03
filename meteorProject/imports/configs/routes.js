@@ -15,28 +15,12 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
-    this.register('getDevs', Meteor.subscribe('getDevs'));
-    //this.register('getVotesCount', Meteor.subscribe('getVotesCount'));
   },
   name: 'home',
   action: function() {
     BlazeLayout.render('layout1', {
       nav: "navigation",
       main: "indexContent"
-    });
-  }
-});
-
-FlowRouter.route('/vote', {
-  subscriptions: function(params, queryParams) {
-    this.register('getDevs', Meteor.subscribe('getDevs'));
-    //this.register('getVotesCount', Meteor.subscribe('getVotesCount'));
-  },
-  name: 'vote',
-  action: function() {
-    BlazeLayout.render('layout1', {
-      nav: "navigation",
-      main: "voteContent"
     });
   }
 });
@@ -54,32 +38,6 @@ privateRoutes.route('/my-account', {
     BlazeLayout.render('layout1', {
       nav: "navigation",
       main: "accountContent"
-    });
-  }
-});
-
-privateRoutes.route('/comments', {
-  name: 'comments',
-  subscriptions: function(params, queryParams) {
-    this.register('getComments', Meteor.subscribe('getComments'));
-  },
-  action: function() {
-    BlazeLayout.render('layout1', {
-      nav: "navigation",
-      main: "commentsContent"
-    });
-  }
-});
-
-privateRoutes.route('/comment/:comId', {
-  name: 'comment',
-  subscriptions: function(params, queryParams) {
-    this.register('getComment', Meteor.subscribe('getComment', params));
-  },
-  action: function() {
-    BlazeLayout.render('layout1', {
-      nav: "navigation",
-      main: "commentContent"
     });
   }
 });
