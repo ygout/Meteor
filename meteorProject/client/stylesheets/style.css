@@ -1,5 +1,7 @@
 /* TODO : Make separate files for internet and intranet */
 
+
+/* INTERNET CSS */
 .slider .indicators .indicator-item {
   background-color: #666666;
   border: 3px solid #ffffff;
@@ -13,17 +15,39 @@
 }
 
 .slider {
+  height:400px !important;
   width: 900px;
   margin: 0 auto;
 }
 
 .slider .indicators {
-  bottom: 60px;
+  bottom: 20px;
   z-index: 100;
   /* text-align: left; */
 }
 
 .nav-icon{
   margin-left : 13px;
-
 }
+
+.nav-top{
+  box-shadow: none;
+}
+
+.row{
+  margin:0px;
+}
+
+.padded-container{
+  padding:15px;
+}
+
+footer.page-footer{
+  margin-top:0px;
+}
+
+.logo{
+  height:50px;
+  margin:7px;
+}
+/* INTRANET CSS */
