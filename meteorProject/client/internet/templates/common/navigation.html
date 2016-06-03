@@ -7,8 +7,12 @@
       <li><a href="">Le groupe</a></li>
       <li><a href="">L'activité</a></li>
       <li><a href="">Nous rejoindre</a></li>
-      <li><a href="">Espace collaborateurs</a></li>
       <li><a href="">Contact</a></li>
+      {{#unless currentUser}}
+        <li><a href="{{pathFor 'signIn'}}">Connexion</a></li>
+      {{else}}
+        <li><a href="{{pathFor 'signOut'}}">Deconnexion</a></li>
+      {{/unless}}
     </ul>
   </nav>
 </template>
