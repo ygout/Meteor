@@ -16,11 +16,12 @@ FlowRouter.notFound = {
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
   },
-  name: 'home',
+  name: 'internetHome',
   action: function() {
-    BlazeLayout.render('layout1', {
-      nav: "navigation",
-      main: "indexContent"
+    BlazeLayout.render('layoutInternet', {
+      nav: "internetNavigation",
+      main: "internetHome",
+      footer: "internetFooter"
     });
   }
 });
