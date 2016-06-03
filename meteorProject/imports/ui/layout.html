@@ -13,7 +13,6 @@
       {{#unless currentUser}}
       <li class="{{isActiveRoute name='signIn'}}"><a href="{{pathFor 'signIn'}}">S'identifier</a></li>
       {{else}}
-      <li class="{{isActiveRoute name='vote'}}"><a href="{{pathFor 'vote'}}">Votes</a></li>
       <li class="{{isActiveRoute name='signOut'}}"><a href="{{pathFor 'signOut'}}">Se déconnecter</a></li>
       {{/unless}}
     </ul>
