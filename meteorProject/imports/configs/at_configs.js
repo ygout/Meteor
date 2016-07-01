@@ -22,7 +22,6 @@ AccountsTemplates.configure({
       loginForbidden: "L'identification a échoué."
     }
   },
-
 })
 
 // génère la route /sign-in
