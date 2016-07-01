@@ -48,11 +48,41 @@ Meteor.importDb = function() {
   UserRanks.insert({email: 'adminMail@test.com', role: 'adminTestRank'});
 
   // Insert Menu
-  Menu.insert({name: 'testParentMenuName'}, function(err, menu) {
+
+  Menu.insert({name: 'Le groupe',position:'navBar'}, function(err, menu) {
     if(err) {
       return err;
     }
-  Menu.insert({name: 'testChildMenuName', content: 'Child content', parentId: new Mongo.ObjectID(menu._id)});
+  Menu.insert({name: 'Présentation', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
+    if(err){
+      return err;
+    }
+    Menu.insert({name: 'La société', content: '', parentId: new Mongo.ObjectID(menu._id)});
+  });
+
+  Menu.insert({name: 'Chiffres clés', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
+    if(err){
+      return err;
+    }
+    Menu.insert({name: 'Détails', content: '', parentId: new Mongo.ObjectID(menu._id)});
+  });
+  Menu.insert({name: 'Notre expertise', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
+    if(err){
+      return err;
+    }
+    Menu.insert({name: 'Présentation des expertises', content: '', parentId: new Mongo.ObjectID(menu._id)});
+    Menu.insert({name: 'Assitance technique', content: '', parentId: new Mongo.ObjectID(menu._id)});
+    Menu.insert({name: 'Formation', content: '', parentId: new Mongo.ObjectID(menu._id)});
+    Menu.insert({name: 'Forfait', content: '', parentId: new Mongo.ObjectID(menu._id)});
+  });
+  Menu.insert({name: 'Les valeurs du groupe', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
+    if(err){
+      return err;
+    }
+    Menu.insert({name: 'Détails', content: '', parentId: new Mongo.ObjectID(menu._id)});
+  });
+  Menu.insert({name: 'Présentation', content: '', parentId: new Mongo.ObjectID(menu._id)});
+  Menu.insert({name: 'Présentation', content: '', parentId: new Mongo.ObjectID(menu._id)});
   });
   Menu.insert({name: 'testMenuName', content: 'Basic content'});
 
