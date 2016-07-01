@@ -7,8 +7,8 @@
 */
 
 AccountsTemplates.configure({
-  showForgotPasswordLink: true,
-  forbidClientAccountCreation: false,
+  showForgotPasswordLink: false,
+  forbidClientAccountCreation: true,
   homeRoutePath: '/private/my-account',
   defaultLayout: "layout1",
   defaultLayoutRegions: {
@@ -27,5 +27,3 @@ AccountsTemplates.configure({
 
 // génère la route /sign-in
 AccountsTemplates.configureRoute('signIn', {name: 'signIn'});
-// génère la route /sign-up
-AccountsTemplates.configureRoute('signUp', {name: 'signUp'});

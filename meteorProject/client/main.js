@@ -7,3 +7,4 @@ import './main.html';
 T9n.setLanguage('fr_FR');
 
 BlazeLayout.setRoot('body');
+Template['override-atForm'].replaces('atForm');
