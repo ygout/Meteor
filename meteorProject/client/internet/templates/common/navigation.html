@@ -1,21 +1,29 @@
 <template name="internetNavigation">
       <nav class="nav-top nav-wrapper blue lighten-2">
         <div class="container">
-        <a href="#" class="brand-logo"><img class="logo" src="img/logo_ipssi.png"></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="">Recherche</a></li>
-          <li><a href="">Mon Ipssi</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Le groupe</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="activityDropdown">L'activité</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="joinUsDropdown">Nous rejoindre</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="collaboDropdown">Espace collaborateur</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Contact</a></li>
-          {{#unless currentUser}}
-            <li><a href="{{pathFor 'signIn'}}">Connexion</a></li>
-          {{else}}
-            <li><a href="{{pathFor 'signOut'}}">Deconnexion</a></li>
-          {{/unless}}
-        </ul>
+          <a class="logo brand-logo" href="#"><img src="img/logo_ipssi.png"></a>
+          <ul class="right">
+            <li class="search-field">
+              <a class="waves-effect waves-light" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </li>
+            {{#unless currentUser}}
+              <li><a class="waves-light" href="{{pathFor 'signIn'}}">Mon Ipssi</a></li>
+            {{else}}
+              <li><a class="waves-light" href="{{pathFor 'signOut'}}">Deconnexion</a></li>
+            {{/unless}}
+          </ul>
+        </div>
+      </nav>
+      <nav class="nav-top nav-wrapper blue darken-3">
+        <div class="container">
+            <ul id="nav-mobile" class="">
+              <li class="empty-li"></li>
+              <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Le groupe</a></li>
+              <li><a class="dropdown-button" href="#!" data-activates="activityDropdown">L'activité</a></li>
+              <li><a class="dropdown-button" href="#!" data-activates="joinUsDropdown">Nous rejoindre</a></li>
+              <li><a class="dropdown-button" href="#!" data-activates="collaboDropdown">Espace collaborateur</a></li>
+              <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Contact</a></li>
+            </ul>
         </div>
       </nav>
 
@@ -51,4 +59,11 @@
         <li><a href="#!">Formulaire</a></li>
       </ul>
 
+      <div id="search-panel" class="blue darken-3">
+        <div class="container">
+        </div>
+        <div class="close">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
 </template>

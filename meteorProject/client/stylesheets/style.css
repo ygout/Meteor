@@ -1,7 +1,20 @@
 /* TODO : Make separate files for internet and intranet */
 
 
-/* INTERNET CSS */
+/*******************************
+          INTERNET CSS
+*******************************/
+
+/* GENERAL */
+
+.empty-li{
+  width: 150px;
+  height:1px;
+}
+
+/* MODAL */
+
+/* SLIDER */
 .slider .indicators .indicator-item {
   background-color: #666666;
   border: 3px solid #ffffff;
@@ -26,11 +39,98 @@
   /* text-align: left; */
 }
 
+/* TOPBAR */
+
+.logo-wrapper{
+  display:inline-block;
+  float:left;
+  width: 240px;
+  max-height: 50px;
+}
+
+.logo{
+  margin:10px;
+}
+
+.logo:hover{
+  background:transparent;
+}
+
+.logo img{
+  height: 62px;
+}
+
+#search:focus::-webkit-input-placeholder { color:#333;}
+#search:focus:-moz-placeholder { color:#333; } /* FF 4-18 */
+#search:focus::-moz-placeholder { color:#333; } /* FF 19+ */
+#search:focus:-ms-input-placeholder { color:#333; } /* IE 10+ */
+
+#search:focus{
+  width:200px;
+}
+
+#search{
+  height:25px;
+  border-radius: 18px;
+  background-color: white;
+  padding:5px;
+}
+
+#search{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #333;
+  margin: 0px;
+}
+
+#search-panel {
+  z-index: 1;
+  height:80px;
+  width:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  display:none;
+}
+
+.close{
+  width:40px;
+  height:40px;
+  position:absolute;
+  top: 0px;
+  right: 0px;
+  color:white;
+  cursor: pointer;
+}
+
+.search-field i{
+  height:0px;
+}
+
+/* label color */
+.search-field label {
+  color: #000;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
+
 .nav-icon{
   margin-left : 13px;
 }
 
 .nav-top{
+  height:40px;
+  line-height: 40px;
+  max-height: 40px;
   box-shadow: none;
 }
 
@@ -42,12 +142,12 @@
   padding:15px;
 }
 
+/* FOOTER */
+
 footer.page-footer{
   margin-top:0px;
 }
 
-.logo{
-  height:50px;
-  margin:7px;
-}
-/* INTRANET CSS */
+/*******************************
+          INTRANET CSS
+*******************************/
