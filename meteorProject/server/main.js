@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Ranks } from '../lib/collections/ranks.js';
 import '../imports/configs/at_configs.js';
 
+var fs = Npm.require('fs');
+
 // Publication des méthodes après désactivation d'autopublish
 
 Meteor.startup(() => {
@@ -30,5 +32,14 @@ Meteor.startup(() => {
     }
 
     return user;
+  });
+
+  Accounts.onLogin(function(log) {
+    var wStream = fs.createWriteStream('../../../../../server/userConnections.log', {'flags': 'a'});
+    var logData = '\nConnection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' |\
+ Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+
+    wStream.write(logData);
+    wStream.end();
   });
 });
