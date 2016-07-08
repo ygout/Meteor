@@ -1,23 +1,34 @@
 import { Meteor } from 'meteor/meteor';
+import { Ranks } from '../lib/collections/ranks.js';
 import '../imports/configs/at_configs.js';
 
 // Publication des méthodes après désactivation d'autopublish
 
 Meteor.startup(() => {
-  //Meteor.importDb();
+  // Meteor.importDb();
   // code to run on server at startup
-  ServiceConfiguration.configurations.update(
-    { "service": "google" },
-    {
-      $set: {
-        "appId": "609274823758-i6mdo55bkeeal3vfqjjbrrsultspg4ri.apps.googleusercontent.com",
-        "secret": "jFJP0hLTY3m2Cx3nioNoJ3e8"
-      }
+  if(!ServiceConfiguration.configurations.find().fetch().length) {
+    ServiceConfiguration.configurations.insert(
+      { "_id" : "ZHcLz7tAyX9sC5HYi",
+      "service" : "google",
+      "clientId" : "609274823758-i6mdo55bkeeal3vfqjjbrrsultspg4ri.apps.googleusercontent.com",
+      "secret" : "jFJP0hLTY3m2Cx3nioNoJ3e8",
+      "loginStyle" : "popup"
     });
-    Accounts.onCreateUser(user) {
-      console.log('CREATE : ', user);
+  };
+
+  Accounts.onCreateUser(function(options, user) {
+    user.services.google.roles = [];
+    var rankList = Ranks.find({email : user.services.google.email}).fetch();
+
+    if(rankList.length) {
+      rankList.forEach(function(rank) {
+        user.services.google.roles.push(rank.role);
+      });
+    } else {
+      user.services.google.roles.push('userTestRank');
     }
-    Accounts.onLogin(user) {
-      console.log('LOGIN : ', user);
-    }
+
+    return user;
+  });
 });
