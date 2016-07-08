@@ -9,7 +9,7 @@
           <li><a class="dropdown-button" href="#!" data-activates="activityDropdown">L'activité</a></li>
           <li><a class="dropdown-button" href="#!" data-activates="joinUsDropdown">Nous rejoindre</a></li>
           <li><a class="dropdown-button" href="#!" data-activates="collaboDropdown">Espace collaborateur</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Contact</a></li>
+          <li><a href="{{pathFor 'contact'}}">Contact</a></li>
           {{#unless currentUser}}
             <li><a href="{{pathFor 'signIn'}}">Connexion</a></li>
           {{else}}
@@ -47,8 +47,8 @@
         <li><a href="#!">Accueil</a></li>
       </ul>
 
-      <ul id="contactDropdown" class="dropdown-content">
-        <li><a href="#!">Formulaire</a></li>
-      </ul>
+
+
+
 
 </template>

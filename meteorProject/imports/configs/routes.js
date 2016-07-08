@@ -26,6 +26,17 @@ FlowRouter.route('/', {
   }
 });
 
+FlowRouter.route('/contact', {
+  name: 'internetContact',
+  action: function() {
+    BlazeLayout.render('layoutInternet', {
+      nav: "internetNavigation",
+      main: "internetContact",
+      footer: "internetFooter"
+    });
+  }
+});
+
 FlowRouter.route('/sign-out', {
   name: 'signOut',
   action: function() {
