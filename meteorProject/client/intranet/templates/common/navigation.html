@@ -1,0 +1,13 @@
+<template name="intranetNavigation">
+  <nav class="nav-wrapper">
+  	<div class="container">
+	    <a href="{{pathFor 'internetHome'}}" class="brand-logo {{isActiveRoute name='internetHome'}}"><span class = "fa fa-thumbs-up">Ipssi-Lyon</span></a>
+	    <ul id="nav-mobile" class="right hide-on-med-and-down">
+	      <li class="{{isActiveRoute name='intranet'}}"><a href="{{pathFor 'intranet'}}">Accueil</a></li>
+	      {{#if currentUser}}
+	      <li class="{{isActiveRoute name='signOut'}}"><a href="{{pathFor 'signOut'}}">Se déconnecter</a></li>
+	      {{/if}}
+	    </ul>
+	</div>
+  </nav>
+</template>

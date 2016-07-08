@@ -1,0 +1,3 @@
+Template.intranetHome.rendered = function () {
+
+}

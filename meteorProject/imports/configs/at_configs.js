@@ -9,8 +9,8 @@
 AccountsTemplates.configure({
   showForgotPasswordLink: false,
   forbidClientAccountCreation: true,
-  homeRoutePath: '/private/my-account',
-  defaultLayout: "layout1",
+  homeRoutePath: '/intranet',
+  defaultLayout: "layoutIntranet",
   defaultLayoutRegions: {
     nav: 'navigation',
     footer: {}
