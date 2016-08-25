@@ -1,3 +1,4 @@
+
 var privateRoutes = FlowRouter.group({
   prefix: '/private',
   name: 'private',
@@ -15,6 +16,10 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
+
+        
+
+
   },
   name: 'internetHome',
   action: function() {

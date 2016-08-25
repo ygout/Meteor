@@ -1,3 +1,5 @@
+import { Menu } from '/lib/collections/menu.js';
+
 Template.internetNavigation.rendered = function(){
   $(".dropdown-button").dropdown({
       inDuration: 300,
@@ -8,4 +10,16 @@ Template.internetNavigation.rendered = function(){
       belowOrigin: true, // Displays dropdown below the button
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
   });
+
+
+
 }
+Template.internetNavigation.onRendered (function(){
+
+  var self = this;
+  self.autorun(function(){
+    self.subscribe("testMenu",function(){
+      //var thing = Menu.find().fetch();
+    });
+  });
+});
