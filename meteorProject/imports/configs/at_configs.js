@@ -21,9 +21,8 @@ AccountsTemplates.configure({
     errors: {
       loginForbidden: "L'identification a échoué."
     }
-  },
-
-})
+  }
+});
 
 // génère la route /sign-in
 AccountsTemplates.configureRoute('signIn', {name: 'signIn'});
