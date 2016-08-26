@@ -11,7 +11,12 @@ Template.internetNavigation.rendered = function(){
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
   });
 
-
+  $('#search-btn').click(function(){
+    $("#search-panel").show();
+  });
+  $('.close').click(function(){
+    $("#search-panel").hide();
+  });
 
 }
 
