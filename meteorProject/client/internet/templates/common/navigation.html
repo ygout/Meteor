@@ -2,7 +2,8 @@
       <nav class="nav-top nav-wrapper blue lighten-2">
         <div class="container">
 
-          <a class="logo brand-logo" href="#"><img src="img/logo_ipssi.png"></a>
+          <a class="logo brand-logo" href="{{pathFor 'internetHome'}}"><img src="img/logo_ipssi.png"></a>
+
           <ul class="right">
             <li class="search-field">
               <a class="waves-effect waves-light" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -19,15 +20,16 @@
         <div class="container">
             <ul id="nav-mobile" class="">
               <li class="empty-li"></li>
-              <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Le groupe</a></li>
-              <li><a class="dropdown-button" href="#!" data-activates="activityDropdown">L'activité</a></li>
-              <li><a class="dropdown-button" href="#!" data-activates="joinUsDropdown">Nous rejoindre</a></li>
-              <li><a class="dropdown-button" href="#!" data-activates="collaboDropdown">Espace collaborateur</a></li>
-              <li><a class="dropdown-button" href="#!" data-activates="groupDropdown">Contact</a></li>
+              <li><a class="dropdown-button" href="{{ pathFor 'group'}}" data-activates="groupDropdown">Le groupe</a></li>
+              <li><a class="dropdown-button" href="{{ pathFor 'activity'}}" data-activates="activityDropdown">L'activité</a></li>
+              <li><a class="dropdown-button" href="{{ pathFor 'joinus'}}" data-activates="joinUsDropdown">Nous rejoindre</a></li>
+              <li><a class="dropdown-button" href="{{ pathFor 'collab'}}" data-activates="collaboDropdown">Espace collaborateur</a></li>
+              <li><a class="dropdown-button" href="{{ pathFor 'contact'}}">Contact</a></li>
             </ul>
 
         </div>
       </nav>
+
 
       <ul id="groupDropdown" class="dropdown-content">
         <li><a href="#!">Présentation</a></li>
@@ -57,18 +59,20 @@
         <li><a href="#!">Accueil</a></li>
       </ul>
 
-
-
-
-
-
-
-
-      <div id="search-panel" class="blue darken-3">
-        <div class="container">
-        </div>
-        <div class="close">
-          <i class="fa fa-times" aria-hidden="true"></i>
+  <div id="search-panel">
+        <div class="container search-container blue lighten-2">
+          <div class="row">
+            <form class="col s10">
+                <div class="input-field search-input col s6">
+                  <i class="material-icons prefix fa fa-search" aria-hidden="true"></i>
+                  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                  <label for="icon_prefix2">Rechercher ...</label>
+                </div>
+            </form>
+            <div class="col s2 close">
+              <i class="fa fa-times btn-close" aria-hidden="true"></i>
+            </div>
+          </div>
         </div>
       </div>
 

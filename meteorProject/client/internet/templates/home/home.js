@@ -7,6 +7,7 @@ Template.internetHome.rendered = function () {
     });
 
 }
+
 Template.internetHome.onCreated (function(){
   //this.subscribe("testMenu");
   // var self = this;
