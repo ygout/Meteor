@@ -16,11 +16,8 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
-
-        
-
-
-  },
+    this.register("monMenu",Meteor.subscribe("testMenu"));
+},
   name: 'internetHome',
   action: function() {
     BlazeLayout.render('layoutInternet', {

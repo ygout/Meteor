@@ -1,4 +1,4 @@
-import { Menu } from '/lib/collections/menu.js';
+
 
 Template.internetNavigation.rendered = function(){
   $(".dropdown-button").dropdown({
@@ -14,12 +14,12 @@ Template.internetNavigation.rendered = function(){
 
 
 }
-Template.internetNavigation.onRendered (function(){
 
-  var self = this;
-  self.autorun(function(){
-    self.subscribe("testMenu",function(){
-      //var thing = Menu.find().fetch();
-    });
-  });
+Template.internetHome.helpers({
+  menus: function(){
+    //console.log(FlowRouter.current().path);
+    return Menu.find().fetch();
+
+  }
+
 });
