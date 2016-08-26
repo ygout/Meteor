@@ -1,13 +1,18 @@
 import { Meteor } from 'meteor/meteor';
+import { Menu } from '/lib/collections/menu.js';
 import { Ranks } from '../lib/collections/ranks.js';
 import '../imports/configs/at_configs.js';
 
 var fs = Npm.require('fs');
 
 // Publication des méthodes après désactivation d'autopublish
-
+Meteor.publish('testMenu', function() {
+  return Menu.find();
+});
 Meteor.startup(() => {
+
   // Meteor.importDb();
+
   // code to run on server at startup
   if(!ServiceConfiguration.configurations.find().fetch().length) {
     ServiceConfiguration.configurations.insert(
