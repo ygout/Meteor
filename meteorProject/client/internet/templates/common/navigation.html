@@ -1,7 +1,9 @@
 <template name="internetNavigation">
       <nav class="nav-top nav-wrapper blue lighten-2">
         <div class="container">
+
           <a class="logo brand-logo" href="{{pathFor 'internetHome'}}"><img src="img/logo_ipssi.png"></a>
+
           <ul class="right">
             <li class="search-field">
               <a class="waves-effect waves-light" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -24,6 +26,7 @@
               <li><a class="dropdown-button" href="{{ pathFor 'collab'}}" data-activates="collaboDropdown">Espace collaborateur</a></li>
               <li><a class="dropdown-button" href="{{ pathFor 'contact'}}">Contact</a></li>
             </ul>
+
         </div>
       </nav>
 
@@ -56,11 +59,7 @@
         <li><a href="#!">Accueil</a></li>
       </ul>
 
-      <ul id="contactDropdown" class="dropdown-content">
-        <li><a href="#!">Formulaire</a></li>
-      </ul>
-
-      <div id="search-panel">
+  <div id="search-panel">
         <div class="container search-container blue lighten-2">
           <div class="row">
             <form class="col s10">
@@ -76,4 +75,5 @@
           </div>
         </div>
       </div>
+
 </template>

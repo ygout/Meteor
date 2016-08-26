@@ -1,3 +1,4 @@
+
 var privateRoutes = FlowRouter.group({
   prefix: '/private',
   name: 'private',
@@ -15,13 +16,24 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
-    console.log(queryParams);
+    this.register("monMenu",Meteor.subscribe("testMenu"));
   },
   name: 'internetHome',
   action: function() {
     BlazeLayout.render('layoutInternet', {
       nav: "internetNavigation",
       main: "internetHome",
+      footer: "internetFooter"
+    });
+  }
+});
+
+FlowRouter.route('/contact', {
+  name: 'internetContact',
+  action: function() {
+    BlazeLayout.render('layoutInternet', {
+      nav: "internetNavigation",
+      main: "internetContact",
       footer: "internetFooter"
     });
   }

@@ -1,3 +1,5 @@
+
+
 Template.internetNavigation.rendered = function(){
   $(".dropdown-button").dropdown({
       inDuration: 300,
@@ -8,10 +10,21 @@ Template.internetNavigation.rendered = function(){
       belowOrigin: true, // Displays dropdown below the button
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
   });
+
   $('#search-btn').click(function(){
     $("#search-panel").show();
   });
   $('.close').click(function(){
     $("#search-panel").hide();
   });
+
 }
+
+Template.internetHome.helpers({
+  menus: function(){
+    //console.log(FlowRouter.current().path);
+    return Menu.find().fetch();
+
+  }
+
+});
