@@ -1,10 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Ranks } from '../lib/collections/ranks.js';
+import { Menu } from '../lib/collections/menu.js';
 import '../imports/configs/at_configs.js';
 
 var fs = Npm.require('fs');
 
 // Publication des méthodes après désactivation d'autopublish
+
+Meteor.publish("testMenu", function () {
+  return Menu.find();
+});
 
 Meteor.startup(() => {
   // Meteor.importDb();
@@ -36,8 +41,17 @@ Meteor.startup(() => {
 
   Accounts.onLogin(function(log) {
     var wStream = fs.createWriteStream('../../../../../server/userConnections.log', {'flags': 'a'});
-    var logData = '\nConnection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' |\
- Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    var logData = '\nLOGIN : Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
+Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+
+    wStream.write(logData);
+    wStream.end();
+  });
+
+  Accounts.onLogout(function(log) {
+    var wStream = fs.createWriteStream('../../../../../server/userConnections.log', {'flags': 'a'});
+    var logData = '\nLOGOUT : Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
+Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
 
     wStream.write(logData);
     wStream.end();
