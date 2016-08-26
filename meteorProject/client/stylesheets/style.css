@@ -12,6 +12,10 @@
   height:1px;
 }
 
+.main{
+  min-height: 80vh;
+}
+
 /* MODAL */
 
 /* SLIDER */
@@ -92,20 +96,36 @@
   top:0px;
   left:0px;
   display:none;
+  color: white;
+}
+
+#search-panel label{
+  color:white;
 }
 
 .close{
-  width:40px;
-  height:40px;
-  position:absolute;
-  top: 0px;
-  right: 0px;
+  width:40;
+  height:40;
   color:white;
+  text-align: right;
   cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-close{
+    margin-right:15px;
 }
 
 .search-field i{
   height:0px;
+}
+
+.search-input{
+  margin:25px !important;
+}
+
+.search-container{
+  max-height:100%;
 }
 
 /* label color */
@@ -118,10 +138,7 @@
   color: #000;
 }
 
-/* icon prefix focus color */
-.input-field .prefix.active {
-  color: #000;
-}
+
 
 .nav-icon{
   margin-left : 13px;

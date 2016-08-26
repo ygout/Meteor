@@ -4,3 +4,7 @@ Template.internetHome.rendered = function () {
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
 }
+
+Template.internetHome.helpers = function () {
+    var contenuHtml = "<p>Test</p>";
+}

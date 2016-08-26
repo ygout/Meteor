@@ -15,6 +15,7 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
+    console.log(queryParams);
   },
   name: 'internetHome',
   action: function() {
