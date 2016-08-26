@@ -1,18 +1,79 @@
 <template name="internetNavigation">
-  <nav class="nav-wrapper blue">
-    <a href="#" class="brand-logo"><span class = "fa fa-thumbs-up">Ipssi-Lyon</span></a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="">Recherche</a></li>
-      <li><a href="">Mon Ipssi</a></li>
-      <li><a href="">Le groupe</a></li>
-      <li><a href="">L'activité</a></li>
-      <li><a href="">Nous rejoindre</a></li>
-      <li><a href="">Contact</a></li>
-      {{#unless currentUser}}
-        <li><a href="{{pathFor 'signIn'}}">Connexion</a></li>
-      {{else}}
-        <li><a href="{{pathFor 'signOut'}}">Deconnexion</a></li>
-      {{/unless}}
+    <nav class="nav-top nav-wrapper blue lighten-2">
+      <div class="container">
+
+        <a class="logo brand-logo" href="{{pathFor 'internetHome'}}"><img src="img/logo_ipssi.png"></a>
+
+        <ul class="right">
+          <li class="search-field">
+            <a class="waves-effect waves-light" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
+          </li>
+          {{#unless currentUser}}
+            <li><a class="waves-light" href="{{pathFor 'signIn'}}">Mon Ipssi</a></li>
+          {{else}}
+            <li class="{{isActiveRoute name='intranet'}}"><a href="{{pathFor 'intranet'}}">Gérer mon site</a></li>
+            <li><a class="waves-light" href="{{pathFor 'signOut'}}">Deconnexion</a></li>
+          {{/unless}}
+        </ul>
+      </div>
+    </nav>
+    <nav class="nav-top nav-wrapper blue darken-3">
+      <div class="container">
+          <ul id="nav-mobile" class="">
+            <li class="empty-li"></li>
+            <li><a class="dropdown-button" href="{{ pathFor 'group'}}" data-activates="groupDropdown">Le groupe</a></li>
+            <li><a class="dropdown-button" href="{{ pathFor 'activity'}}" data-activates="activityDropdown">L'activité</a></li>
+            <li><a class="dropdown-button" href="{{ pathFor 'joinus'}}" data-activates="joinUsDropdown">Nous rejoindre</a></li>
+            <li><a class="dropdown-button" href="{{ pathFor 'collab'}}" data-activates="collaboDropdown">Espace collaborateur</a></li>
+            <li><a class="dropdown-button" href="{{ pathFor 'contact'}}">Contact</a></li>
+          </ul>
+
+      </div>
+    </nav>
+
+
+    <ul id="groupDropdown" class="dropdown-content">
+      <li><a href="#!">Présentation</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Chiffre clés</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Notre expertise</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Les valeurs du groupe</a></li>
     </ul>
-  </nav>
+
+    <ul id="activityDropdown" class="dropdown-content">
+      <li><a href="#!">Nos métiers</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Nos secteurs d'activités</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Ils nous font confiance</a></li>
+    </ul>
+
+    <ul id="joinUsDropdown" class="dropdown-content">
+      <li><a href="#!">Postes à pourvoir</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">Postuler</a></li>
+    </ul>
+
+    <ul id="collaboDropdown" class="dropdown-content">
+      <li><a href="#!">Accueil</a></li>
+    </ul>
+
+    <div id="search-panel">
+      <div class="container search-container blue lighten-2">
+        <div class="row">
+          <form class="col s10">
+              <div class="input-field search-input col s6">
+                <i class="material-icons prefix fa fa-search" aria-hidden="true"></i>
+                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Rechercher ...</label>
+              </div>
+          </form>
+          <div class="col s2 close">
+            <i class="fa fa-times btn-close" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
