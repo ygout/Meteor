@@ -8,6 +8,6 @@ Meteor.publish('testMenu', function() {
   return Menu.find();
 });
 Meteor.startup(() => {
-  //Meteor.importDb();
+  Meteor.importDb();
   // code to run on server at startup
 });

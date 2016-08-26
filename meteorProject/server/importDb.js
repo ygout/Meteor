@@ -8,7 +8,6 @@
 /////////////////////////////////////////////////
 
 import { Mongo } from 'meteor/mongo'
-
 import { Menu } from '../lib/collections/menu.js'
 import { Expense } from '../lib/collections/expense.js'
 import { News } from '../lib/collections/news.js'
@@ -49,42 +48,33 @@ Meteor.importDb = function() {
 
   // Insert Menu
 
-  Menu.insert({name: 'Le groupe',position:'navBar'}, function(err, menu) {
-    if(err) {
-      return err;
-    }
-  Menu.insert({name: 'Présentation', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
-    if(err){
-      return err;
-    }
-    Menu.insert({name: 'La société', content: '', parentId: new Mongo.ObjectID(menu._id)});
-  });
+  Menu.insert({name: 'Le groupe',position:'navBar'}, function(err, groupMenu) {
+      if(err){return err;}
 
-  Menu.insert({name: 'Chiffres clés', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
-    if(err){
-      return err;
-    }
-    Menu.insert({name: 'Détails', content: '', parentId: new Mongo.ObjectID(menu._id)});
+      Menu.insert({name: 'Présentation', content: '', parentId: groupMenu}, function(err, presentationMenu) {
+        if(err)return err;
+        Menu.insert({name: 'La société', content: '', parentId: presentationMenu});
+      });
+
+      Menu.insert({name: 'Chiffres clés', content: '', parentId: groupMenu},function(err, numberMenu) {
+        if(err)return err;
+        Menu.insert({name: 'Détails', content: '', parentId: numberMenu});
+      });
+
+      Menu.insert({name: 'Notre expertise', content: '', parentId: groupMenu},function(err, expertiseMenu) {
+        if(err){return err;}
+
+        Menu.insert({name: 'Présentation des expertises', content: '', parentId: expertiseMenu});
+        Menu.insert({name: 'Assitance technique', content: '', parentId: expertiseMenu});
+        Menu.insert({name: 'Formation', content: '', parentId: expertiseMenu});
+        Menu.insert({name: 'Forfait', content: '', parentId: expertiseMenu});
+      });
+
+      Menu.insert({name: 'Les valeurs du groupe', content: '', parentId: groupMenu},function(err, groupvalueMenu) {
+        if(err){return err;}
+      });
+
   });
-  Menu.insert({name: 'Notre expertise', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
-    if(err){
-      return err;
-    }
-    Menu.insert({name: 'Présentation des expertises', content: '', parentId: new Mongo.ObjectID(menu._id)});
-    Menu.insert({name: 'Assitance technique', content: '', parentId: new Mongo.ObjectID(menu._id)});
-    Menu.insert({name: 'Formation', content: '', parentId: new Mongo.ObjectID(menu._id)});
-    Menu.insert({name: 'Forfait', content: '', parentId: new Mongo.ObjectID(menu._id)});
-  });
-  Menu.insert({name: 'Les valeurs du groupe', content: '', parentId: new Mongo.ObjectID(menu._id)},function(err,menu) {
-    if(err){
-      return err;
-    }
-    Menu.insert({name: 'Détails', content: '', parentId: new Mongo.ObjectID(menu._id)});
-  });
-  Menu.insert({name: 'Présentation', content: '', parentId: new Mongo.ObjectID(menu._id)});
-  Menu.insert({name: 'Présentation', content: '', parentId: new Mongo.ObjectID(menu._id)});
-  });
-  Menu.insert({name: 'testMenuName', content: 'Basic content'});
 
   console.log('IMPORT FINISHED');
 }
