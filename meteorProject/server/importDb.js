@@ -40,29 +40,29 @@ Meteor.importDb = function() {
   Ranks.insert({email: 'testMail@test.com', role: 'userTestRank'});
 
   // Insert Menu
-  Menu.insert({name: 'Le groupe',position:'navBar'}, function(err, groupMenu) {
+  Menu.insert({ name : 'group',label: 'Le groupe',position:'navBar'}, function(err, groupMenu) {
       if(err){return err;}
 
-      Menu.insert({name: 'Présentation', content: '', parentId: groupMenu}, function(err, presentationMenu) {
+      Menu.insert({label: 'Présentation', content: '', parentId: groupMenu}, function(err, presentationMenu) {
         if(err)return err;
-        Menu.insert({name: 'La société', content: '', parentId: presentationMenu});
+        Menu.insert({label: 'La société', content: '', parentId: presentationMenu});
       });
 
-      Menu.insert({name: 'Chiffres clés', content: '', parentId: groupMenu},function(err, numberMenu) {
+      Menu.insert({label: 'Chiffres clés', content: '', parentId: groupMenu},function(err, numberMenu) {
         if(err)return err;
-        Menu.insert({name: 'Détails', content: '', parentId: numberMenu});
+        Menu.insert({label: 'Détails', content: '', parentId: numberMenu});
       });
 
-      Menu.insert({name: 'Notre expertise', content: '', parentId: groupMenu},function(err, expertiseMenu) {
+      Menu.insert({label: 'Notre expertise', content: '', parentId: groupMenu},function(err, expertiseMenu) {
         if(err){return err;}
 
-        Menu.insert({name: 'Présentation des expertises', content: '', parentId: expertiseMenu});
-        Menu.insert({name: 'Assitance technique', content: '', parentId: expertiseMenu});
-        Menu.insert({name: 'Formation', content: '', parentId: expertiseMenu});
-        Menu.insert({name: 'Forfait', content: '', parentId: expertiseMenu});
+        Menu.insert({label: 'Présentation des expertises', content: '', parentId: expertiseMenu});
+        Menu.insert({label: 'Assitance technique', content: '', parentId: expertiseMenu});
+        Menu.insert({label: 'Formation', content: '', parentId: expertiseMenu});
+        Menu.insert({label: 'Forfait', content: '', parentId: expertiseMenu});
       });
 
-      Menu.insert({name: 'Les valeurs du groupe', content: '', parentId: groupMenu},function(err, groupvalueMenu) {
+      Menu.insert({label: 'Les valeurs du groupe', content: '', parentId: groupMenu},function(err, groupvalueMenu) {
         if(err){return err;}
       });
   console.log('IMPORT FINISHED');
