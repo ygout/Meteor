@@ -7,12 +7,12 @@
 //
 /////////////////////////////////////////////////
 
+
 import { Mongo } from 'meteor/mongo'
 import { Menu } from '../lib/collections/menu.js'
 import { Expense } from '../lib/collections/expense.js'
 import { News } from '../lib/collections/news.js'
 import { Ranks } from '../lib/collections/ranks.js'
-import { UserRanks } from '../lib/collections/userRanks.js'
 import { Vacant_position } from '../lib/collections/vacantPosition.js'
 import { Vacations } from '../lib/collections/vacations.js'
 import { Curriculum_vitae } from '../lib/collections/curriculumVitae.js'
@@ -20,14 +20,7 @@ import { Curriculum_vitae } from '../lib/collections/curriculumVitae.js'
 Meteor.importDb = function() {
 
   // Insert Ranks
-  if (Ranks.find().count() === 0)
-  {
-    Ranks.insert({name: 'userTestRank'});
-    Ranks.insert({name: 'adminTestRank'});
-  }
-
-  // Insert UserRanks
-  UserRanks.insert({email: 'userMail@test.com', role: 'userTestRank'}, function(err, user) {
+  Ranks.insert({email: 'renaud.cayol@gmail.com', role: 'adminTestRank'}, function(err, user) {
     if(err) {
       return err;
     }
@@ -44,10 +37,9 @@ Meteor.importDb = function() {
       phone: 'testCVPhone', email: 'CVMail@test.com'})
     });
   });
-  UserRanks.insert({email: 'adminMail@test.com', role: 'adminTestRank'});
+  Ranks.insert({email: 'testMail@test.com', role: 'userTestRank'});
 
   // Insert Menu
-
   Menu.insert({name: 'Le groupe',position:'navBar'}, function(err, groupMenu) {
       if(err){return err;}
 
@@ -73,8 +65,6 @@ Meteor.importDb = function() {
       Menu.insert({name: 'Les valeurs du groupe', content: '', parentId: groupMenu},function(err, groupvalueMenu) {
         if(err){return err;}
       });
-
-  });
-
   console.log('IMPORT FINISHED');
+  });
 }

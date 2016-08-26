@@ -7,10 +7,10 @@
 */
 
 AccountsTemplates.configure({
-  showForgotPasswordLink: true,
-  forbidClientAccountCreation: false,
-  homeRoutePath: '/private/my-account',
-  defaultLayout: "layout1",
+  showForgotPasswordLink: false,
+  forbidClientAccountCreation: true,
+  homeRoutePath: '/intranet',
+  defaultLayout: "layoutIntranet",
   defaultLayoutRegions: {
     nav: 'navigation',
     footer: {}
@@ -22,9 +22,8 @@ AccountsTemplates.configure({
       loginForbidden: "L'identification a échoué."
     }
   },
-})
+});
+
 
 // génère la route /sign-in
 AccountsTemplates.configureRoute('signIn', {name: 'signIn'});
-// génère la route /sign-up
-AccountsTemplates.configureRoute('signUp', {name: 'signUp'});

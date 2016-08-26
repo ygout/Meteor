@@ -1,7 +1,7 @@
 
 var privateRoutes = FlowRouter.group({
-  prefix: '/private',
-  name: 'private',
+  prefix: '/intranet',
+  name: 'intranet',
   triggersEnter: [AccountsTemplates.ensureSignedIn]
 });
 
@@ -46,12 +46,15 @@ FlowRouter.route('/sign-out', {
   }
 });
 
-privateRoutes.route('/my-account', {
-  name: 'myAccount',
+privateRoutes.route('/', {
+  subscriptions: function(params, queryParams) {
+  },
+  name: 'intranet',
   action: function() {
-    BlazeLayout.render('layout1', {
-      nav: "navigation",
-      main: "accountContent"
+    BlazeLayout.render('layoutIntranet', {
+      nav: "intranetNavigation",
+      main: "intranetHome",
+      footer: "intranetFooter"
     });
   }
 });
