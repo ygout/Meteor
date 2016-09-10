@@ -16,7 +16,9 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
-    this.register("testMenu",Meteor.subscribe("testMenu"));
+    this.register("testMenu",Meteor.subscribe("testMenu", {onReady: function(){
+
+    }}));
   },
   name: 'internetHome',
   action: function() {
