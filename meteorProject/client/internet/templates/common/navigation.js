@@ -1,4 +1,4 @@
-
+import { Menu } from '/lib/collections/menu.js';
 
 Template.internetNavigation.rendered = function(){
   $(".dropdown-button").dropdown({
@@ -20,11 +20,17 @@ Template.internetNavigation.rendered = function(){
 
 }
 
-Template.internetHome.helpers({
-  menus: function(){
-    //console.log(FlowRouter.current().path);
-    return Menu.find().fetch();
+Template.internetNavigation.helpers({
 
+  menus: function(){
+    console.log('test1',Menu.find().fetch());
+    return Menu.find({"parentId" : {$exists:false}}).fetch();
+  },
+  groupMenu: function(){
+    var groupMenu = Menu.findOne({"name" : "group"});
+    console.log('groupMenu',Menu.find({"parentId" : groupMenu._id }).fetch());
+    return Menu.find({"parentId" : groupMenu._id }).fetch();
   }
+
 
 });
