@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Menu } from '/lib/collections/menu.js';
 import { Ranks } from '../lib/collections/ranks.js';
-import { Menu } from '../lib/collections/menu.js';
 import '../imports/configs/at_configs.js';
 
 var fs = Npm.require('fs');
@@ -49,7 +48,7 @@ Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().to
     wStream.write(logData);
     wStream.end();
   });
-
+/*
   Accounts.onLogout(function(log) {
     var wStream = fs.createWriteStream('../../../../../server/userConnections.log', {'flags': 'a'});
     var logData = '\nLOGOUT : Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
@@ -57,5 +56,5 @@ Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().to
 
     wStream.write(logData);
     wStream.end();
-  });
+  });*/
 });
