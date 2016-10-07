@@ -40,29 +40,29 @@ Meteor.importDb = function() {
   Ranks.insert({email: 'testMail@test.com', role: 'userTestRank'});
 
   // Insert Menu
-  Menu.insert({ name : 'group',label: 'Le groupe',position:'navBar'}, function(err, groupMenu) {
+  Menu.insert({ name : 'group',label: 'Le groupe', content: '<h1>Le groupe</h1>', position:'navBar'}, function(err, groupMenu) {
       if(err){return err;}
 
-      Menu.insert({label: 'Présentation', content: '', parentId: groupMenu}, function(err, presentationMenu) {
+      Menu.insert({label: 'Présentation', name: 'presentation', content: '<h1> Présentation </h1>', parentId: groupMenu}, function(err, presentationMenu) {
         if(err)return err;
-        Menu.insert({label: 'La société', content: '', parentId: presentationMenu});
+        Menu.insert({label: 'La société', name: 'society', content: '<h1> La société </h1>', parentId: presentationMenu});
       });
 
-      Menu.insert({label: 'Chiffres clés', content: '', parentId: groupMenu},function(err, numberMenu) {
+      Menu.insert({label: 'Chiffres clés', name: 'keyfigures', content: '<h1> Chiffres clés </h1>', parentId: groupMenu},function(err, numberMenu) {
         if(err)return err;
-        Menu.insert({label: 'Détails', content: '', parentId: numberMenu});
+        Menu.insert({label: 'Détails', name: 'details', content: '<h1> Détails </h1>', parentId: numberMenu});
       });
 
-      Menu.insert({label: 'Notre expertise', content: '', parentId: groupMenu},function(err, expertiseMenu) {
+      Menu.insert({label: 'Notre expertise', name: 'ourexpertise', content: '<h1> Notre expertise </h1>', parentId: groupMenu},function(err, expertiseMenu) {
         if(err){return err;}
 
-        Menu.insert({label: 'Présentation des expertises', content: '', parentId: expertiseMenu});
-        Menu.insert({label: 'Assitance technique', content: '', parentId: expertiseMenu});
-        Menu.insert({label: 'Formation', content: '', parentId: expertiseMenu});
-        Menu.insert({label: 'Forfait', content: '', parentId: expertiseMenu});
+        Menu.insert({label: 'Présentation des expertises', name: 'presentationexpertise', content: '<h1> Présentation des expertises </h1>', parentId: expertiseMenu});
+        Menu.insert({label: 'Assistance technique', name: 'technicalassistance', content: '<h1> Assistance technique </h1>', parentId: expertiseMenu});
+        Menu.insert({label: 'Formation', name: 'training', content: '<h1> Formation </h1>', parentId: expertiseMenu});
+        Menu.insert({label: 'Forfait', name: 'flatrate', content: '<h1> Forfait </h1>', parentId: expertiseMenu});
       });
 
-      Menu.insert({label: 'Les valeurs du groupe', content: '', parentId: groupMenu},function(err, groupvalueMenu) {
+      Menu.insert({label: 'Les valeurs du groupe', name: 'groupvalue', content: '<h1> Les valeurs du groupe </h1>', parentId: groupMenu},function(err, groupvalueMenu) {
         if(err){return err;}
       });
   console.log('IMPORT FINISHED');
