@@ -1,61 +1,55 @@
 <template name="internetNavigation">
-    <nav class="nav-top nav-wrapper blue lighten-2">
-      <div class="container">
+  <nav class="nav-top nav-wrapper blue lighten-2">
+    <div class="container">
 
-        <a class="logo brand-logo" href="{{pathFor 'internetHome'}}"><img src="img/logo_ipssi.png"></a>
+      <a class="logo brand-logo" href="{{pathFor 'internetHome'}}"><img src="img/logo_ipssi.png"></a>
 
-        <ul class="right">
-          <li class="search-field">
-            <a class="waves-effect waves-light" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
-          </li>
-          {{#unless currentUser}}
-            <li><a class="waves-light" href="{{pathFor 'signIn'}}">Mon Ipssi</a></li>
-          {{else}}
-            <li class="{{isActiveRoute name='intranet'}}"><a href="{{pathFor 'intranet'}}">Gérer mon site</a></li>
-            <li><a class="waves-light" href="{{pathFor 'signOut'}}">Deconnexion</a></li>
-          {{/unless}}
-        </ul>
-      </div>
-    </nav>
-    <nav class="nav-top nav-wrapper blue darken-3">
-      <div class="container">
-          <ul id="nav-mobile" class="">
-            <li class="empty-li"></li>
-            {{#each menus}}
-              <li><a class="dropdown-button" href="{{ pathFor 'group' }}" data-activates="group">{{label}}</a></li>
+      <ul class="right">
+        <li class="search-field">
+          <a class="waves-effect waves-light" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
+        </li>
+        {{#unless currentUser}}
+          <li><a class="waves-light" href="{{pathFor 'signIn'}}">Mon Ipssi</a></li>
+        {{else}}
+          <li class="{{isActiveRoute name='intranet'}}"><a href="{{pathFor 'intranet'}}">Gérer mon site</a></li>
+          <li><a class="waves-light" href="{{pathFor 'signOut'}}">Deconnexion</a></li>
+        {{/unless}}
+      </ul>
+    </div>
+  </nav>
+  <nav class="nav-top nav-wrapper blue darken-3">
+    <div class="container">
+        <ul id="nav-mobile" class="">
+          <li class="empty-li"></li>
+            {{#if Template.subscriptionsReady}}
+            {{#each  menu in menus}}
+              <li><a class="dropdown-button" href="#" data-activates="{{menu.name}}">{{menu.label}}</a></li>
+              <ul id="{{menu.name}}" class="dropdown-content">
+              {{#each child in menu.children}}
+                <li><a href="#!">{{child.label}}</a></li>
+              {{/each}}
+            </ul>
             {{/each}}
-          </ul>
+          {{/if}}
+        </ul>
+    </div>
+  </nav>
 
-      </div>
-    </nav>
-
-
-    <ul id="group" class="dropdown-content">
-      {{#each groupMenu }}
-          <li><a href="#!">{{label}}</a></li>
-      {{/each}}
-
-    </ul>
-
-
-
-    <div id="search-panel">
-      <div class="container search-container blue lighten-2">
+  <div id="search-panel">
+    <div class="container search-container blue lighten-2">
         <div class="row">
-          <form class="col s10">
-              <div class="input-field search-input col s6">
-                <i class="material-icons prefix fa fa-search" aria-hidden="true"></i>
-                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                <label for="icon_prefix2">Rechercher ...</label>
-              </div>
-          </form>
-          <div class="col s2 close">
-            <i class="fa fa-times btn-close" aria-hidden="true"></i>
+        <form class="col s10">
+          <div class="input-field search-input col s6">
+            <i class="material-icons prefix fa fa-search" aria-hidden="true"></i>
+            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+            <label for="icon_prefix2">Rechercher ...</label>
           </div>
+        </form>
+        <div class="col s2 close">
+          <i class="fa fa-times btn-close" aria-hidden="true"></i>
         </div>
       </div>
     </div>
-    <div>
+  </div>
 
-    </div>
 </template>
