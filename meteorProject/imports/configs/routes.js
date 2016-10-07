@@ -30,6 +30,26 @@ FlowRouter.route('/', {
   }
 });
 
+FlowRouter.route('/pages/:_id', {
+  subscriptions: function(params, queryParams) {
+    this.register("testMenu",Meteor.subscribe("testMenu", {onReady: function(){
+
+    }}));
+  },
+  name: 'pages',
+  action: function(params, queryParams) {
+    console.log(params);
+    console.log(queryParams);
+    BlazeLayout.render('layoutInternet', {
+      nav: "internetNavigation",
+      main: "internetPage",
+      footer: "internetFooter",
+      params: params,
+    });
+  }
+});
+
+
 FlowRouter.route('/contact', {
   name: 'internetContact',
   action: function() {

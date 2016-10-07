@@ -12,7 +12,7 @@ Meteor.publish('testMenu', function() {
 
 Meteor.startup(() => {
 
-  //Meteor.importDb();
+  // Meteor.importDb();
 
   // code to run on server at startup
   if(!ServiceConfiguration.configurations.find().fetch().length) {
