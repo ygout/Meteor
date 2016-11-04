@@ -65,6 +65,40 @@ Meteor.importDb = function() {
       Menu.insert({label: 'Les valeurs du groupe', name: 'groupvalue', content: '<h1> Les valeurs du groupe </h1>', parentId: groupMenu},function(err, groupvalueMenu) {
         if(err){return err;}
       });
-  console.log('IMPORT FINISHED');
+
+
+
   });
+  Menu.insert({ name : 'activite',label: 'L\'activite', content: '<h1>L\'activite</h1>', position:'navBar'}, function(err, activiteMenu) {
+      if(err){return err;}
+
+      Menu.insert({label: 'Nos métiers', name: 'nosMetiers', content: '<h1> Nos métiers </h1>', parentId: activiteMenu});
+      Menu.insert({label: ' Nos secteurs d\'activité', name: 'nosSecteurs', content: '<h1> Nos secteurs d\'activité </h1>', parentId: activiteMenu});
+
+      Menu.insert({label: 'Energies', name: 'energies', content: '<h1> Energies </h1>', parentId: activiteMenu},function(err, energiesMenu) {
+        if(err)return err;
+        Menu.insert({label: 'Chimie, pétrochimie, pharmacie', name: 'chimiePP', content: '<h1> Chimie, pétrochimie, pharmacie </h1>', parentId: energiesMenu});
+        Menu.insert({label: 'Industrie lourde', name: 'industrieLourde', content: '<h1> Industrie lourde </h1>', parentId: energiesMenu});
+        Menu.insert({label: 'Transport', name: 'transport', content: '<h1> Transport </h1>', parentId: energiesMenu});
+
+      });
+
+      Menu.insert({label: 'Ils nous font confiance', name: 'nousFontConfiance', content: '<h1> Ils nous font confiance </h1>', parentId: activiteMenu});
+  });
+
+  Menu.insert({ name : 'nousRejoindre',label: 'Nous rejoindre', content: '<h1>Nous rejoindre</h1>', position:'navBar'}, function(err, nousRejoindreMenu) {
+      if(err){return err;}
+      Menu.insert({label: 'Postes à pourvoir', name: 'postes', content: '<h1> Postes à pourvoir </h1>', parentId: nousRejoindreMenu});
+      Menu.insert({label: 'Postuler', name: 'postuler', content: '<h1> Postuler</h1>', parentId: nousRejoindreMenu});
+  });
+
+  Menu.insert({ name : 'espaceCollaborateur',label: 'Espace collaborateur', content: '<h1>Espace collaborateur</h1>', position:'navBar'}, function(err, espaceCollaborateurMenu) {
+      if(err){return err;}
+
+  });
+  Menu.insert({ name : 'contact',label: 'Contact', content: '<h1>Contact</h1>', position:'navBar'}, function(err, contactMenu) {
+      if(err){return err;}
+
+  });
+  console.log('IMPORT FINISHED');
 }
