@@ -1,22 +1,23 @@
 import { Menu } from '/lib/collections/menu.js';
+import { Helpers } from '../../helpers.js';
 
-Template.internetPage.helpers({
+Helpers.content = function() {
 
-  content: function(){
+   var menuName = Template.currentData()._id;
+   console.log(menuName);
 
-     var menuName = Template.currentData()._id;
-     console.log(menuName);
+   var content = Menu.findOne({"name" : menuName});
 
-     var content = Menu.findOne({"name" : menuName});
+   console.log(content);
+   if(content){
+    return content.content;
+   }
+}
 
-     console.log(content);
-     return content.content;
+Template.internetPage.helpers(Helpers);
 
-  },
-  groupMenu: function(){
-    var groupMenu = Menu.findOne({"name" : "group"});
-    return Menu.find({"parentId" : groupMenu._id }).fetch();
-  }
-
-
-});
+Template.internetPage.rendered = function(){
+   $('.collapsible').collapsible();
+      $('.subcollapsible').collapsible();
+   
+}
