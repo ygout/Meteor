@@ -42,19 +42,19 @@ Meteor.startup(() => {
 
   Accounts.onLogin(function(log) {
     var wStream = fs.createWriteStream('../../../../../server/userConnections.log', {'flags': 'a'});
-    var logData = '\nLOGIN : Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
-Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    var logData = '\nAction: Login | Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
+Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + ',';
 
     wStream.write(logData);
     wStream.end();
   });
-/*
+
   Accounts.onLogout(function(log) {
     var wStream = fs.createWriteStream('../../../../../server/userConnections.log', {'flags': 'a'});
-    var logData = '\nLOGOUT : Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
-Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    var logData = '\nAction: Logout | Connection ID : ' + log.connection.id + ' | User ID : ' + log.user._id + ' | \
+Client IP : ' + log.connection.clientAddress + ' | Timestamp : ' + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + ',';
 
     wStream.write(logData);
     wStream.end();
-  });*/
+  });
 });
