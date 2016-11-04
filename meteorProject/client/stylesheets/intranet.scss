@@ -28,13 +28,17 @@
 
 .containerLogin{
   max-width: 600px;
-  margin: 0 auto;
-  padding: 80px 0;
-  height: 400px;
+  margin: auto;
+  margin-top: 30vh;
+  padding: 18vh 0;
   text-align: center;
   position: relative;
   z-index: 2;
   background: white;
+  background-image: url("img/logo.png");
+  background-repeat: no-repeat;
+  background-position: center 2%;
+  border-radius: 10px;
 }
 
 .bg-bubbles{
