@@ -18,6 +18,18 @@
 
 /* MODAL */
 
+.search-background{
+  display:none;
+  background-color:black;
+  position:absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  opacity: 0.5;
+}
+
 /* SLIDER */
 .slider .indicators .indicator-item {
   background-color: #666666;
@@ -89,7 +101,7 @@
 }
 
 #search-panel {
-  z-index: 1;
+  z-index: 1001;
   height:80px;
   width:100%;
   position:absolute;

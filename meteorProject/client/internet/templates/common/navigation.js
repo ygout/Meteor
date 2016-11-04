@@ -32,11 +32,15 @@ Template.internetNavigation.rendered = function(){
       });
 
       $('#search-btn').click(function(){
-       $("#search-panel").show();
+       $("#search-panel").slideDown(200,'linear', function(){
+         $("#search-input").focus();
+         $(".search-background").fadeIn();
+       })
       });
 
       $('.close').click(function(){
-        $("#search-panel").hide();
+        $("#search-panel").slideUp(200,'linear')
+        $(".search-background").fadeOut();
       });
 
     }.bind(this));
