@@ -59,11 +59,8 @@ Template.internetNavigation.helpers({
       result.push(menu);
      });
     return result;
-  },
-  groupMenu: function(){
-    var groupMenu = Menu.findOne({"name" : "group"});
-    return Menu.find({"parentId" : groupMenu._id }).fetch();
   }
+
 
 
 });

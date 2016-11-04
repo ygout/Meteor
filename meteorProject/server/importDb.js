@@ -96,7 +96,115 @@ Meteor.importDb = function() {
       if(err){return err;}
 
   });
-  Menu.insert({ name : 'contact',label: 'Contact', content: '<h1>Contact</h1>', position:'navBar'}, function(err, contactMenu) {
+  Menu.insert({ name : 'contact',label: 'Contact', content: `<div class="container contact">
+    <h3>Contactez-nous</h3>
+    <hr>
+    <div class="row">
+        <form class="col s12 m6 l6">
+          <div class = "row">
+            <div class="input-field col s6">
+              <select>
+                <option value="" disabled selected>Choissisez qui vous êtes</option>
+                <option value="1">Une personne riche</option>
+                <option value="2">Une personne vivante</option>
+                <option value="3">Un candidat</option>
+                <option value="4">Messi</option>
+                <option value="5">Un annimal</option>
+              </select>
+              <label>Vous êtes :</label>
+            </div>
+            <div class="input-field col s6">
+              <select>
+                <option value="" disabled selected>Choissisez une demande</option>
+                <option value="1">Un incident technique</option>
+                <option value="2">Une demande d'entretien</option>
+                <option value="3">Une panne de courant</option>
+                <option value="4">Un cadeau du père noël</option>
+                <option value="5">Un poisson rouge</option>
+              </select>
+              <label>Votre demande concerne :</label>
+            </div>
+          </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <div class = "col s2">
+                  <p>Sexe : </p>
+                </div>
+                <div class=" col s1">
+
+
+                   <input name="group1" type="radio" id="test1" />
+                   <label for="test1">Homme</label>
+
+                   <input name="group1" type="radio" id="test2" />
+                   <label for="test2">Femme</label>
+
+               </div>
+
+               </div>
+              </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="mdi-action-account-circle prefix"></i> <input
+                        id="icon_prefix" type="text" class="validate"> <label
+                        for="icon_prefix">Nom</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <i class="mdi-action-account-circle prefix"></i> <input
+                        id="icon_prefix" type="text" class="validate"> <label
+                        for="icon_prefix">Prénom</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="mdi-communication-business prefix"></i> <input
+                        id="icon_prefix" type="text" class="validate"> <label
+                        for="icon_prefix">Fonction</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <i class="mdi-action-dns prefix"></i> <input
+                        id="icon_telephone" type="text" class="validate"> <label
+                        for="icon_telephone">Société</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="mdi-communication-contacts prefix"></i> <input
+                        id="icon_prefix" type="text" class="validate"> <label
+                        for="icon_prefix">Email</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <i class="mdi-communication-phone prefix"></i> <input
+                        id="icon_telephone" type="tel" class="validate"> <label
+                        for="icon_telephone">Téléphone</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi-editor-mode-edit prefix"></i>
+                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2">Message</label>
+                </div>
+            </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+        <div class="col s12 m6 l6 contact-holder">
+
+        </div>
+
+    </div>
+</div>`, position:'navBar'}, function(err, contactMenu) {
       if(err){return err;}
 
   });

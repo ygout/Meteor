@@ -16,7 +16,7 @@ FlowRouter.notFound = {
 
 FlowRouter.route('/', {
   subscriptions: function(params, queryParams) {
-    this.register("testMenu",Meteor.subscribe("testMenu", {onReady: function(){
+    this.register("menu",Meteor.subscribe("menu", {onReady: function(){
 
     }}));
   },
@@ -32,13 +32,13 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/pages/:_id', {
   subscriptions: function(params, queryParams) {
-    this.register("testMenu",Meteor.subscribe("testMenu", {onReady: function(){
+    this.register("menu",Meteor.subscribe("menu", {onReady: function(){
 
     }}));
   },
   name: 'pages',
   action: function(params, queryParams) {
-    console.log(params);
+    console.log('params',params);
     console.log(queryParams);
     BlazeLayout.render('layoutInternet', {
       nav: "internetNavigation",

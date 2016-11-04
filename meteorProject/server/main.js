@@ -6,13 +6,13 @@ import '../imports/configs/at_configs.js';
 var fs = Npm.require('fs');
 
 // Publication des méthodes après désactivation d'autopublish
-Meteor.publish('testMenu', function() {
+Meteor.publish('menu', function() {
   return Menu.find();
 });
 
 Meteor.startup(() => {
 
-  // Meteor.importDb();
+  //Meteor.importDb();
 
   // code to run on server at startup
   if(!ServiceConfiguration.configurations.find().fetch().length) {
