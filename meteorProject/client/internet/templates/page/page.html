@@ -1,7 +1,59 @@
 <template name="internetPage">
 
-<div class="container">
-  {{{content}}}
-</div>
+  <div class="container">
+    <div class="row">
+    <div class="col s3">
+      <div class="sidebarmenu">
+        <ul class="collapsible" data-collapsible="expandable">
+          {{#each menu in menus}}
+            <li>
+              <div class="collapsible-header">{{menu.label}}</div>
+              <div class="collapsible-body">
+                {{#if menu.children.length}}
+                  <ul class="collapsible" data-collapsible="expandable">
+                    {{#each child in menu.children}}
+                      <li>
+                        <div class="collapsible-header">{{child.label}}</div>
+                        <div class="collapsible-body">
+                            {{#if child.grandChildren.length}}
+                              <ul class="collapsible" data-collapsible="expandable">
+                                {{#each grandChild in child.grandChildren}}
+                                <li>
+                                  <div class="collapsible-header">{{grandChild.label}}</div>
+                                  <div class="collapsible-body">{{grandChild.label}}</div>
+                                </li>
+                                {{/each}}
+                              </ul>
+                            {{/if}}
+                          </div>
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{/if}}
+              </div>
+            </li>
+          {{/each}}
+        </ul>
 
+        <ul class="collapsible" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header">Third</div>
+            <div class="collapsible-body">
+              <ul class="collapsible" data-collapsible="expandable">
+                <li>
+                  <div class="collapsible-header">Second</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col s8">
+      {{{content}}}
+    </div>
+  </div>
+</div>
 </template>
