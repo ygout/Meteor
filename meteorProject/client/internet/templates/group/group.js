@@ -1,3 +1,0 @@
-Template.internetHome.rendered = function () {
-
-}
