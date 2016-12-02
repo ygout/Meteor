@@ -2,7 +2,7 @@ import { Menu } from '/lib/collections/menu.js';
 
 export const Helpers =
 {
-  menus: function(){
+  menus: function() {
      var menus = Menu.find({"parentId" : {$exists:false}}).fetch();
      var result = [];
      menus.forEach(function(menu) {
@@ -14,8 +14,14 @@ export const Helpers =
      });
     return result;
   },
-  groupMenu: function(){
+  groupMenu: function() {
     var groupMenu = Menu.findOne({"name" : "group"});
     return Menu.find({"parentId" : groupMenu._id }).fetch();
+  },
+  currentMenu: function() {
+    return Template.currentData()._id;
+  },
+  equal: function(firstArg, secondArg) {
+    return firstArg === secondArg;
   }
 }

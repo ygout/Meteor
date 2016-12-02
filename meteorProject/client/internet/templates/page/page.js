@@ -4,7 +4,7 @@ import { Helpers } from '../../helpers.js';
 Helpers.content = function() {
 
    var menuName = Template.currentData()._id;
-   console.log(menuName);
+   console.log("menuName : " + menuName);
 
    var content = Menu.findOne({"name" : menuName});
 
@@ -19,5 +19,5 @@ Template.internetPage.helpers(Helpers);
 Template.internetPage.rendered = function(){
    $('.collapsible').collapsible();
       $('.subcollapsible').collapsible();
-   
+
 }
