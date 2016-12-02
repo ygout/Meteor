@@ -5,7 +5,38 @@
           INTERNET CSS
 *******************************/
 
+/* PALETTE */
+
+.maroon7{
+  background-color: #ECDFBD !important;
+}
+
+.darkblue7{
+  background-color: #20457C !important;
+}
+
+.black7{
+  background-color: #3B3A35 !important;
+}
+
+.red7{
+  background-color: #FB6648 !important;
+}
+
+.purple7{
+  background-color: #5E3448 !important;
+}
+
 /* GENERAL */
+
+.container-fluid{
+  /*TODO JAVASCRIPT POSITION FOOTER */
+  min-height: 80vh;
+}
+
+.section{
+  min-height: 50vh;
+}
 
 .empty-li{
   width: 150px;
@@ -14,6 +45,11 @@
 
 .main{
   min-height: 80vh;
+}
+
+.unmarged{
+  margin:0px !important;
+  padding:0px !important;
 }
 
 /* MODAL */
@@ -59,7 +95,6 @@
 
 .logo-wrapper{
   display:inline-block;
-  float:left;
   width: 240px;
   max-height: 50px;
 }
@@ -175,6 +210,18 @@
 
 footer.page-footer{
   margin-top:0px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+  margin:0px;
+  padding: 0px;
+}
+
+.sidebarmenu{
+  /* TODO */
+  min-height: 80vh;
 }
 
 /*******************************
