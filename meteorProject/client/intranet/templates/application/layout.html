@@ -1,15 +1,16 @@
 <template name="layoutIntranet">
   {{> Template.dynamic template=nav}}
-  <div class="container">
-    {{> Template.dynamic template=main}}
-  </div>
+  {{> Template.dynamic template=main}}
   {{> Template.dynamic template=footer}}
 </template>
 
 <template name="authContent">
-  <div class="row">
-    <div class="col s6 offset-s3">
-      {{> atForm}}
+  <div class="wrapperLogin">
+    <div class="containerLogin">
+      <div class="container">
+        {{> atForm}}        
+      </div>
     </div>
+    <div class="bg-bubbles"></div>
   </div>
 </template>
