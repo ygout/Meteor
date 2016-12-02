@@ -44,7 +44,7 @@ FlowRouter.route('/pages/:_id', {
       nav: "internetNavigation",
       main: "internetPage",
       footer: "internetFooter",
-      params: params,
+      params: params
     });
   }
 });
